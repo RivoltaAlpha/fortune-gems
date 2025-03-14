@@ -1,3 +1,4 @@
+"use client";
 /** @format */
 
 import Image from "next/image";
@@ -14,6 +15,10 @@ import bouncex15 from "../../assets/bounce-x15.webp";
 // import king1 from "../../assets/king2.webp";
 import Carousel from "@/components/carousel/Carousel";
 import FortuneGemLayout from "@/layouts/FortuneGemLayout";
+import { playSpecialSound } from "@/utils/utilities";
+import { useRouter } from "next/navigation";
+import { LoadPageMusic } from "@/utils/soundManager";
+import { useEffect } from "react";
 
 const volatilityImages = [
 	{
@@ -39,6 +44,21 @@ const volatilityImages = [
 ];
 
 export default function FortuneGem() {
+	const router = useRouter();
+
+		useEffect(() => {
+			// Test sound on component mount
+			LoadPageMusic();
+		  }, []);
+
+	const playClickSound = (e) => {
+		e.preventDefault();
+		playSpecialSound();
+		setTimeout(() => {
+		  router.push('/game-scene');
+		}, 3000); 
+	  }
+
 	return (
 		<FortuneGemLayout>
 			<div className="volatility-container">
@@ -106,7 +126,8 @@ export default function FortuneGem() {
 			<div className="continue-button-wrapper">
 				<Link
 					href={"/game-scene"}
-					style={{ height: "100%" }}>
+					style={{ height: "100%" }}
+					onClick={playClickSound}>
 					<Image
 						src={continueButton}
 						alt="continue-button"

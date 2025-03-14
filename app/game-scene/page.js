@@ -30,6 +30,9 @@ import bounce15 from "../../assets/bounceX15.png";
 
 import "./gamescene.css";
 import Image from "next/image";
+import { playSpinSound } from "@/utils/utilities";
+import { LoadPageMusic } from "@/utils/soundManager";
+import { useRouter } from "next/navigation";
 
 export default function GameScene() {
 	const tweens = [a, j, k, q, diamondBlue, diamondGreen, diamondRed, kingWild];
@@ -45,12 +48,22 @@ export default function GameScene() {
 	const [results, setResults] = useState([null, null, null, null]);
 
 	const [speed, setSpeed] = useState(0.1);
+	const router = useRouter(); // Initialize router
+  
+	const playSpinningSound = () => {
+	  playSpinSound();
+	}
+
+	useEffect(() => {
+		// Test sound on component mount
+		LoadPageMusic();
+	  }, []);
 
 	useEffect(() => {
 		const intervals = [];
 
 		spinning.forEach((isSpinning, index) => {
-			if (isSpinning) {
+			if (isSpinning) {	
 				intervals[index] = setInterval(() => {
 					if (index < 3) {
 						setCurrentSlots((prevSlots) => {
@@ -76,6 +89,7 @@ export default function GameScene() {
 	}, [spinning, tweens?.length, bounds?.length]);
 
 	const handleSpin = () => {
+		playSpinningSound();
 		setSpinning([true, true, true, true]);
 		setResults([null, null, null, null]);
 		setSpeed(0.15);
