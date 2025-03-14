@@ -5,6 +5,7 @@ import canvasImg from "../assets/canvas-bg.jpg";
 import "../styles/fortunegame.css";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import MusicProvider from '@/components/carousel/MusicProvider';
 
 export default function FortuneGemLayout({ children }) {
 	const path = usePathname();
@@ -22,7 +23,9 @@ export default function FortuneGemLayout({ children }) {
 								filter: `${path === "/game-scene" ? "brightness(1.6)" : ""} `,
 							}}
 						/>
+       				 <MusicProvider>
 						{children}
+					</MusicProvider>
 					</div>
 					<section>
 						<Link href="/">
