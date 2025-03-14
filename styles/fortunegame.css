@@ -1,0 +1,236 @@
+/** @format */
+
+.game-main-page {
+	width: 100%;
+	height: max-content;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.game-main-background {
+	width: 100%;
+	min-height: 100vh;
+	height: max-content;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-image: url(../assets/fortune-bg.webp);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.game-canvas-container {
+	background-color: var(--foreground);
+	max-width: 960px;
+	width: 98%;
+	border-radius: 16px;
+	padding: 8px;
+	overflow: hidden;
+}
+.game-area-container {
+	width: 100%;
+	position: relative;
+}
+.canvas-img {
+	width: 100%;
+	height: auto;
+	border-radius: 8px;
+}
+.game-canvas-container section {
+	padding: 0.2% 12px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.game-canvas-container section a,
+.game-canvas-container section span {
+	display: flex;
+	align-items: center;
+}
+.game-canvas-container section i {
+	font-size: 26px;
+	font-weight: 700;
+}
+.volatility-container {
+	position: absolute;
+	top: 7%;
+	left: 10%;
+	right: 10%;
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+	gap: 10px;
+	font-weight: 700;
+	height: 7%;
+}
+.volatility-container img {
+	height: 100%;
+	width: auto;
+}
+.volatile {
+	display: flex;
+	align-items: center;
+	height: 75%;
+	margin-left: -25%;
+	opacity: 0.8;
+}
+.volatile :not(:nth-child(2), :nth-child(1)) {
+	transform: scale(0.75);
+}
+.relative-carousel-container {
+	width: max-content;
+	height: 100%;
+	position: relative;
+}
+.carousel-bouncing-king {
+	position: absolute;
+	left: 24%;
+	top: 17.5%;
+	height: 40%;
+	width: auto;
+	animation: bounce 7s linear infinite;
+	filter: brightness(1.4);
+}
+.carousel-super-win {
+	position: absolute;
+	left: 14.7%;
+	top: -1%;
+	height: 36%;
+	width: auto;
+	animation: bounce 7s linear infinite;
+	filter: brightness(1.4);
+	z-index: 5;
+}
+.bouncex15 {
+	height: 36%;
+	top: 30%;
+	left: 28%;
+	z-index: 4;
+	animation: bouncex15 7.01s linear infinite;
+}
+
+@keyframes bouncex15 {
+	0% {
+		transform: scale(1.095);
+		opacity: 0;
+	}
+	5% {
+		transform: scale(0.95);
+		opacity: 1;
+	}
+	10% {
+		transform: scale(1.095);
+	}
+	25% {
+		transform: scale(0.95);
+	}
+	30% {
+		transform: scale(1.095);
+	}
+	35% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(0.8);
+		opacity: 0.8;
+	}
+	55% {
+		transform: scale(0.6);
+		opacity: 0;
+	}
+	100% {
+		transform: scale(0);
+		opacity: 0;
+	}
+}
+
+@keyframes bounce {
+	0% {
+		transform: scale(1.095);
+		opacity: 1;
+	}
+	5% {
+		transform: scale(0.95);
+	}
+	10% {
+		transform: scale(1.095);
+	}
+	25% {
+		transform: scale(0.95);
+	}
+	30% {
+		transform: scale(1.095);
+	}
+	35% {
+		transform: scale(0.95);
+	}
+	40% {
+		transform: scale(1.2);
+	}
+	50% {
+		transform: scale(0.8);
+		opacity: 0.8;
+	}
+	55% {
+		transform: scale(0.6);
+		opacity: 0;
+	}
+	100% {
+		transform: scale(0);
+		opacity: 0;
+	}
+}
+
+.carousel-main-container {
+	position: absolute;
+	top: 19%;
+	left: 8px;
+	right: 8px;
+	height: 60%;
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	margin-bottom: 2%;
+}
+.carousel-image-1 {
+	height: 82%;
+	width: auto;
+}
+
+.continue-button-wrapper {
+	position: absolute;
+	bottom: 10%;
+	height: 7%;
+	left: 8px;
+	right: 8px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+@media screen and (max-width: 740px) {
+	.volatile p {
+		font-size: 80%;
+	}
+}
+
+@media screen and (max-width: 512px) {
+	.volatile p {
+		font-size: 60%;
+	}
+	.game-canvas-container section i,
+	.game-canvas-container section {
+		font-size: 14px !important;
+	}
+}
+
+@media screen and (max-width: 412px) {
+	.game-canvas-container section i,
+	.game-canvas-container section {
+		font-size: 12px !important;
+	}
+	.continue-button-wrapper {
+		position: absolute;
+		bottom: 14.5%;
+	}
+}
